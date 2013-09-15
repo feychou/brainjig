@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+   <title>brainthing</title>
+   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.min.js
+"></script>
+   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.1/underscore-min.js
+"></script>
+   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.2/backbone-min.js"></script>
+   <script type="text/javascript" src="js/board_model.js"></script>   
+   <script type="text/javascript" src="js/brainthing.js"></script>
+   <link type="text/css" rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div id="instruction">
+<p>Remember the pattern and click on the right tiles to rescue the forlorn Jigglypuffs from sadness!</p>
+<p>If you forget the pattern, you can ask for help but this will make some of the Jigglypuffs panic and probably kill your Pikachu, before breaking free into the cruel world again.</p>
+<button type="button" id="start" value="Go catch 'em all!">Go catch 'em all!</button>
+</div>
+<div id="board-container">
+</div>
+<script type="text/template" id="board">
+<div id="level"><%=level%></div>
+<div id="matrix">
+  <% _.each(board, function(row, rowNum) { %>
+    <div class="row" data-rownum="<%=rowNum%>">
+		  <% _.each(row, function(tile, tileNum) { %>
+			  <span class="tile" data-tilenum="<%= tileNum %>">
+			  </span>
+		  <% }) %>  
+	  </div>
+  <% }) %>
+</div>
+<div id="points-counter">Points: <%=points%></div>
+<div id="life-container">Life:
+  <div id="pokeball-container">
+    <% for(i=0; i<life; i++) { %>
+        <span class="life"></span>
+    <% } %>
+  </div>
+</div>
+<button id="stupidme" type="button" value="Soz, wasn't careful">
+  Soz, wasn't careful
+</button>
+<button class="hidden" id="retry" type="button" value="Go catch 'em all">
+  Go catch 'em all
+</button>
+</script>
+<div class="layer-container">
+  <div class="layer"></div>
+</div>
+</body>
+</html>
