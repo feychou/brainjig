@@ -87,6 +87,7 @@ button { cursor:pointer; }
   display:inline-block;
   height:100%;
   width:100px;
+  cursor: pointer;
   border-right:1px solid black;
 }
 #matrix div.row span.sizefour { width:75px; }
